@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.5/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <title>Document</title>
+</head>
+
+<body class="p-3 lg:p-6">
+  <div class="navbar bg-base-100 fixed pr-12 lg:pr-16 z-50 backdrop-blur-[2rem]">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </div>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <li>
+            <a class="btn">Button</a>
+          </li>
+        </ul>
+      </div>
+      <a class="btn btn-ghost text-xl lg:flex hidden">quackOverflow</a>
+    </div>
+    <div class="navbar-center lg:flex">
+      <!-- Input and Send Elements -->
+      <div class="">
+        <div class="space-x-2.5">
+          <input type="text" id="message" placeholder="Ask quackOverflow..."
+            class="input input-bordered w-[15rem] lg:w-[40rem] rounded-full" />
+          <!-- <button id="send-btn" class="btn btn-warning">Send</button> -->
+          <button id="send-btn" class="btn btn-primary btn-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+              <path
+                d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-end hidden lg:flex">
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-neutral">
+          Theme
+          <svg width="12px" height="12px" class="h-2 w-2 fill-current opacity-60 inline-block"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
+            <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+          </svg>
+        </div>
+        <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+          <div class="card-body">
+            <input type="radio" name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Default"
+              value="default" />
+            <input type="radio" name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Retro" value="retro" />
+            <input type="radio" name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Cyberpunk"
+              value="cyberpunk" />
+            <input type="radio" name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Valentine"
+              value="valentine" />
+            <input type="radio" name="theme-dropdown"
+              class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Aqua" value="aqua" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Quack Start Container -->
+  <div class="chat chat-start lg:px-64 px-4 pt-[7rem]">
+    <div class="chat-image avatar">
+      <div class="w-10 rounded-full">
+        <img alt="Tailwind CSS chat bubble component"
+          src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+      </div>
+    </div>
+    <div class="chat-header">
+      Quack Overflow
+      <time class="text-xs opacity-50">12:46</time>
+    </div>
+    <ul>
+      <li class="chat-bubble pr-6" id="quack">
+        Quack!
+      </li>
+    </ul>
+    <div class="chat-footer opacity-50">
+      Seen at 12:46
+    </div>
+  </div>
+
+  <script src="./quack.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</body>
+
+</html>
