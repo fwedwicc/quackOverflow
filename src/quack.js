@@ -37,7 +37,16 @@ function main() {
 
   const chatTime = document.createElement('time');
   chatTime.classList.add('text-xs', 'opacity-50', 'pl-2');
-  chatTime.textContent = '12:45';
+
+  const updateTime = () => {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    chatTime.textContent = `${hours}:${minutes}`;
+  };
+
+  setInterval(updateTime, 1000);
+  updateTime();
 
   chatHeader.appendChild(chatTime);
   chatContainer.appendChild(chatHeader);
@@ -85,7 +94,16 @@ function main() {
 
     const quackTime = document.createElement('time');
     quackTime.classList.add('text-xs', 'opacity-50', 'pl-2');
-    quackTime.textContent = '12:45';
+
+    const updateTime = () => {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      quackTime.textContent = `${hours}:${minutes}`;
+    };
+
+    setInterval(updateTime, 1000);
+    updateTime();
 
     quackHeader.appendChild(quackTime);
     quackContainer.appendChild(quackHeader);
@@ -113,8 +131,27 @@ function main() {
 
     const quackFooter = document.createElement('div');
     quackFooter.classList.add('chat-footer', 'opacity-50');
-    quackFooter.textContent = 'Seen at';
+    quackFooter.textContent = 'Typing';
     quackContainer.appendChild(quackFooter);
+
+    setTimeout(() => {
+      // Update the quackFooter element with the current time
+      const updateQuackTime = () => {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        quackFooter.textContent = `Seen at ${hours}:${minutes}`;
+      };
+
+      // Update the quackFooter element every second
+      setInterval(updateQuackTime, 1000);
+
+      // Call the updateTime function once to set the initial time
+      updateQuackTime();
+
+    }, 2000);
+
+
 
     document.body.appendChild(quackContainer);
   }, 400);
