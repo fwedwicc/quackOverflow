@@ -2,6 +2,18 @@
 const messageInput = document.getElementById('message');
 const sendBtn = document.getElementById('send-btn');
 const chat = document.getElementById('chat');
+const time = document.querySelector('.time');
+
+const updateTime = () => {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  time.textContent = `${hours}:${minutes}`;
+};
+
+setInterval(updateTime, 1000);
+updateTime();
+
 
 function scrollToBottom() {
   window.scrollTo({
@@ -9,6 +21,7 @@ function scrollToBottom() {
     behavior: 'smooth'
   });
 }
+
 
 // Miracle
 function main() {
