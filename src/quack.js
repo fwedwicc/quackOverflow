@@ -3,6 +3,10 @@ const messageInput = document.getElementById('message');
 const sendBtn = document.getElementById('send-btn');
 const chat = document.getElementById('chat');
 const time = document.querySelector('.time');
+const quack = new Audio('../assets/sounds/quack.mp3');
+const bloop = new Audio('../assets/sounds/bloop.mp3');
+
+// Timeeererist for Initial Quack
 
 const updateTime = () => {
   const now = new Date();
@@ -11,7 +15,7 @@ const updateTime = () => {
   time.textContent = `${hours}:${minutes}`;
 };
 
-setInterval(updateTime, 1000);
+// updateTime function to set the initial time
 updateTime();
 
 
@@ -45,12 +49,13 @@ function main() {
   chatContainer.appendChild(chatImage);
 
   const chatHeader = document.createElement('div');
-  chatHeader.classList.add('chat-header');
+  chatHeader.classList.add('chat-header', 'text-primary-content');
   chatHeader.textContent = 'Your Name';
 
   const chatTime = document.createElement('time');
   chatTime.classList.add('text-xs', 'opacity-50', 'pl-2');
 
+  // Timerist for message
   const updateTime = () => {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
@@ -58,7 +63,6 @@ function main() {
     chatTime.textContent = `${hours}:${minutes}`;
   };
 
-  setInterval(updateTime, 1000);
   updateTime();
 
   chatHeader.appendChild(chatTime);
@@ -68,7 +72,7 @@ function main() {
   chatContainer.appendChild(chatUl);
 
   const chatBubble = document.createElement('li');
-  chatBubble.classList.add('chat-bubble', 'pr-6', 'lg:max-w-[30rem]', 'max-w-[17rem]');
+  chatBubble.classList.add('chat-bubble', 'pr-6', 'lg:max-w-[30rem]', 'max-w-[17rem]', 'chat-bubble-secondary', 'text-secondary-content');
   chatBubble.textContent = messageValue;
   chatBubble.id = 'message';
   chatUl.appendChild(chatBubble);
@@ -102,12 +106,13 @@ function main() {
     quackContainer.appendChild(quackImage);
 
     const quackHeader = document.createElement('div');
-    quackHeader.classList.add('chat-header');
+    quackHeader.classList.add('chat-header', 'text-primary-content');
     quackHeader.textContent = 'Quack Overflow';
 
     const quackTime = document.createElement('time');
     quackTime.classList.add('text-xs', 'opacity-50', 'pl-2');
 
+    // Timerist for quack
     const updateTime = () => {
       const now = new Date();
       const hours = now.getHours().toString().padStart(2, '0');
@@ -115,7 +120,6 @@ function main() {
       quackTime.textContent = `${hours}:${minutes}`;
     };
 
-    setInterval(updateTime, 1000);
     updateTime();
 
     quackHeader.appendChild(quackTime);
@@ -124,22 +128,22 @@ function main() {
     const quackUl = document.createElement('ul');
     quackContainer.appendChild(quackUl);
 
+    // chat bubble for quackerist
     const quackBubble = document.createElement('li');
-    quackBubble.classList.add('chat-bubble', 'pr-6');
+    quackBubble.classList.add('chat-bubble', 'pr-6', 'chat-bubble-primary', 'text-primary-content');
 
-    // Create the loader element
+    // loader elementttttt
     const loader = document.createElement('span');
     loader.classList.add('loading', 'loading-dots', 'loading-md', 'pt-2');
     quackBubble.appendChild(loader);
 
-    // Append the quackBubble element to the quackUl element
+    // Append ng quackBubble element sa quackUl element
     quackUl.appendChild(quackBubble);
 
-    // Show the loader for 3 seconds
+    // typing loader for 3 seconds
     setTimeout(() => {
-      // Set the text content of the quackBubble element to 'quack'
+      // QUackk!!!!!!
       quackBubble.textContent = 'Quack!';
-
     }, 2000);
 
     const quackFooter = document.createElement('div');
@@ -148,23 +152,15 @@ function main() {
     quackContainer.appendChild(quackFooter);
 
     setTimeout(() => {
-      // Update the quackFooter element with the current time
+      // Puter element with the current time
       const updateQuackTime = () => {
         const now = new Date();
         const hours = now.getHours().toString().padStart(2, '0');
         const minutes = now.getMinutes().toString().padStart(2, '0');
         quackFooter.textContent = `Seen at ${hours}:${minutes}`;
       };
-
-      // Update the quackFooter element every second
-      setInterval(updateQuackTime, 1000);
-
-      // Call the updateTime function once to set the initial time
       updateQuackTime();
-
     }, 2000);
-
-
 
     document.body.appendChild(quackContainer);
   }, 400);
@@ -177,10 +173,24 @@ function main() {
 
 messageInput.addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
+    // Calling Miracle
     main();
+    // Message Sound
+    bloop.play();
+    // Quack Sound
+    setTimeout(() => {
+      quack.play();
+    }, 2000);
   }
 });
 
 sendBtn.addEventListener('click', function () {
+  // Calling Miracle
   main();
+  // Message Sound
+  bloop.play();
+  // Quack Sound
+  setTimeout(() => {
+    quack.play();
+  }, 2000);
 });
