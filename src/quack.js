@@ -42,15 +42,15 @@ function main() {
 
   const chatImageImg = document.createElement('img');
   chatImageImg.alt = 'Tailwind CSS chat bubble component';
-  chatImageImg.src = 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg';
+  chatImageImg.src = '../assets/images/chad-profile.png';
 
   chatImageInner.appendChild(chatImageImg);
   chatImage.appendChild(chatImageInner);
   chatContainer.appendChild(chatImage);
 
   const chatHeader = document.createElement('div');
-  chatHeader.classList.add('chat-header', 'text-primary-content');
-  chatHeader.textContent = 'Your Name';
+  chatHeader.classList.add('chat-header', 'text-base-content');
+  chatHeader.textContent = 'You';
 
   const chatTime = document.createElement('time');
   chatTime.classList.add('text-xs', 'opacity-50', 'pl-2');
@@ -72,10 +72,20 @@ function main() {
   chatContainer.appendChild(chatUl);
 
   const chatBubble = document.createElement('li');
-  chatBubble.classList.add('chat-bubble', 'pr-6', 'lg:max-w-[30rem]', 'max-w-[17rem]', 'chat-bubble-secondary', 'text-secondary-content');
-  chatBubble.textContent = messageValue;
+  chatBubble.classList.add('chat-bubble', 'pr-4', 'lg:max-w-[30rem]', 'max-w-[17rem]', 'chat-bubble-secondary', 'text-secondary-content');
   chatBubble.id = 'message';
   chatUl.appendChild(chatBubble);
+
+  if (messageValue === '') {
+    const quackEmoji = new Image();
+    quackEmoji.src = '../assets/images/rubber-duck-icon.png';
+    quackEmoji.classList.add('w-7', 'h-auto');
+    chatBubble.innerHTML = ''; 
+    chatBubble.appendChild(quackEmoji); 
+    quack.play();
+  } else {
+    chatBubble.textContent = messageValue;
+  }
 
   const chatFooter = document.createElement('div');
   chatFooter.classList.add('chat-footer', 'opacity-50');
@@ -98,15 +108,15 @@ function main() {
     quackImageInner.classList.add('w-10', 'rounded-full');
 
     const quackImageImg = document.createElement('img');
-    quackImageImg.alt = 'Tailwind CSS chat bubble component';
-    quackImageImg.src = 'https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg';
+    quackImageImg.alt = 'quackOverflow Profile';
+    quackImageImg.src = '../assets/images/rd-right-view.jpg';
 
     quackImageInner.appendChild(quackImageImg);
     quackImage.appendChild(quackImageInner);
     quackContainer.appendChild(quackImage);
 
     const quackHeader = document.createElement('div');
-    quackHeader.classList.add('chat-header', 'text-primary-content');
+    quackHeader.classList.add('chat-header', 'text-base-content');
     quackHeader.textContent = 'Quack Overflow';
 
     const quackTime = document.createElement('time');
@@ -181,6 +191,7 @@ messageInput.addEventListener('keydown', function (event) {
     setTimeout(() => {
       quack.play();
     }, 2000);
+
   }
 });
 
@@ -194,3 +205,9 @@ sendBtn.addEventListener('click', function () {
     quack.play();
   }, 2000);
 });
+
+function enableMute() { 
+  quack.muted = true;
+  bloop.muted = true;
+}
+
