@@ -3,8 +3,8 @@ const messageInput = document.getElementById('message');
 const sendBtn = document.getElementById('send-btn');
 const chat = document.getElementById('chat');
 const time = document.querySelector('.time');
-const quack = new Audio('../assets/sounds/quack.mp3');
-const bloop = new Audio('../assets/sounds/bloop.mp3');
+const quack = new Audio('./assets/sounds/quack.mp3');
+const bloop = new Audio('./assets/sounds/bloop.mp3');
 
 // Timeeererist for Initial Quack
 
@@ -42,7 +42,7 @@ function main() {
 
   const chatImageImg = document.createElement('img');
   chatImageImg.alt = 'Tailwind CSS chat bubble component';
-  chatImageImg.src = '../assets/images/chad-profile.png';
+  chatImageImg.src = './assets/images/chad-profile.png';
 
   chatImageInner.appendChild(chatImageImg);
   chatImage.appendChild(chatImageInner);
@@ -78,7 +78,7 @@ function main() {
 
   if (messageValue === '') {
     const quackEmoji = new Image();
-    quackEmoji.src = '../assets/images/rubber-duck-icon.png';
+    quackEmoji.src = './assets/images/rubber-duck-icon.png';
     quackEmoji.classList.add('w-7', 'h-auto');
     chatBubble.innerHTML = ''; 
     chatBubble.appendChild(quackEmoji); 
@@ -109,7 +109,7 @@ function main() {
 
     const quackImageImg = document.createElement('img');
     quackImageImg.alt = 'quackOverflow Profile';
-    quackImageImg.src = '../assets/images/rd-right-view.jpg';
+    quackImageImg.src = './assets/images/rd-right-view.jpg';
 
     quackImageInner.appendChild(quackImageImg);
     quackImage.appendChild(quackImageInner);
