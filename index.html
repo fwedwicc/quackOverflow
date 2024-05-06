@@ -22,30 +22,29 @@
 
 <body id="body-padding">
   <!-- Loader -->
+  <!-- FIXME: attribution and illustration -->
   <div class="h-screen w-auto bg-primary flex justify-center items-center transition-opacity duration-900 ease-out"
     id="loader">
-    <!-- FIXME: attribution and illustration -->
     <span class="loading loading-spinner loading-lg"></span>
   </div>
   <!-- // Loader -->
   <!-- Main Navbar -->
   <!-- FIXME: Responsiveness -->
-  <div class="navbar bg-base-100 fixed pr-8 py-4 lg:py-6 lg:pl-10 z-50">
+  <div class="navbar bg-base-100 fixed z-50 py-2 lg:py-6 lg:px-12 px-3">
     <!-- Navbar Start -->
     <div class="navbar-start">
       <div class="dropdown">
         <!-- Burger -->
+        <!-- TODO: Attribution sa burger and shadowings -->
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-          <!-- FIXME: SVG Color -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
           </svg>
         </div>
         <!-- Burger Content -->
         <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-md bg-base-100 rounded-box w-52">
           <!-- Logo -->
-          <li class="pb-4">
+          <li class="pb-4 pt-4">
             <span class="inline-flex justify-center items-center gap-2.5">
               <img src="./assets/images/quackOverflow-logo.png" alt="Quack Overflow Logo" class="w-10 h-auto">
               <h5>quack<span class="font-bold">Overflow</span></h5>
@@ -93,7 +92,7 @@
           </li>
           <!-- // Theme -->
           <!-- Sound and LInk Container -->
-          <div class="inline-flex justify-center items-center gap-4 pt-6">
+          <div class="inline-flex justify-center items-center gap-4 pt-4">
             <!-- Sound Switch -->
             <label
               class="swap btn btn-ghost hover:bg-primary focus:bg-primary hover:text-primary-content focus:text-primary-content btn-circle">
@@ -136,21 +135,6 @@
       </span>
     </div>
     <!-- // Navbar Start -->
-    <!-- Navbar Center -->
-    <div class="navbar-center lg:flex">
-      <!-- Input and Send Elements -->
-      <div class="space-x-2.5">
-        <input type="text" id="message" placeholder="Ask quackOverflow..." autocomplete="off"
-          class="input input-bordered w-[15rem] lg:w-[40rem] rounded-full text-base-content" />
-        <button id="send-btn" class="btn btn-primary btn-circle">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-            <path
-              d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
-          </svg>
-        </button>
-      </div>
-    </div>
-    <!-- // Navbar Center -->
     <!-- Navbar End -->
     <div class="navbar-end hidden lg:flex gap-2">
       <!-- Github Repo Link -->
@@ -168,7 +152,6 @@
       <label
         class="swap btn btn-ghost hover:bg-primary focus:bg-primary hover:text-primary-content focus:text-primary-content btn-circle">
         <input type="checkbox" class="sound-1" value="" />
-        
         <!-- Sound icon -->
         <svg class="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
           fill="currentColor">
@@ -232,9 +215,24 @@
     <!-- // Navbar End -->
   </div>
   <!--//  Main Navbar -->
+  <!-- Input and Submit -->
+  <div class="fixed z-50 bottom-0 w-full hidden" id="message-container">
+    <div class="space-x-2.5 justify-center items-center flex w-full py-4 lg:py-6 px-4">
+      <!-- lg:w-[40rem] w-[15rem] -->
+      <input type="text" id="message" placeholder="Ask quackOverflow..." autocomplete="off"
+        class="input input-bordered rounded-full w-full max-w-lg text-base-content" />
+
+      <button id="send-btn" class="btn btn-primary btn-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+          <path
+            d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <!-- // Input and Submit -->
   <!-- Quack Start Container -->
-  <div class="chat chat-start lg:px-64 px-4 pt-[7rem] hidden"
-    id="chat-container">
+  <div class="chat chat-start lg:px-64 px-4 pt-[5rem] lg:pt-[7rem] hidden" id="chat-container">
     <div class="chat-image avatar">
       <div class="w-10 rounded-full">
         <img alt="quackOverflow Profile" src="./assets/images/rd-right-view.jpg" />

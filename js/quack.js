@@ -173,11 +173,11 @@ function main() {
     }, 2000);
 
     document.body.appendChild(quackContainer);
-  }, 400);
+  }, 200);
 
   setTimeout(function () {
     scrollToBottom();
-  }, 500); // Adjust the delay as needed
+  }, 200); // Message delay
 }
 
 
@@ -246,6 +246,7 @@ checkbox2.addEventListener('change', function () {
 
 const loader = document.querySelector('#loader');
 const chatContainer = document.querySelector('#chat-container');
+const messageContainer = document.getElementById('message-container');
 const bodyPadding = document.getElementById('body-padding');
 
 setTimeout(() => {
@@ -253,7 +254,8 @@ setTimeout(() => {
   setTimeout(() => {
     loader.style.display = 'none';
     chatContainer.classList.remove('hidden');
+    messageContainer.classList.remove('hidden');
   }, 900);
 
-  bodyPadding.classList.add('pb-4', 'lg:pb-6');
+  bodyPadding.classList.add('pb-[6rem]', 'lg:pb-[8rem]');
 }, 3000);
