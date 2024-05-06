@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- DaisyUI -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.5/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>quackOverflow</title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/images/quackOverflow-logo.png" type="image/x-icon">
@@ -18,15 +20,24 @@
   </style>
 </head>
 
-<body class="pb-4 lg:pb-6">
+<body id="body-padding">
+  <!-- Loader -->
+  <div class="h-screen w-auto bg-primary flex justify-center items-center transition-opacity duration-900 ease-out"
+    id="loader">
+    <!-- FIXME: attribution and illustration -->
+    <span class="loading loading-spinner loading-lg"></span>
+  </div>
+  <!-- // Loader -->
   <!-- Main Navbar -->
+  <!-- FIXME: Responsiveness -->
   <div class="navbar bg-base-100 fixed pr-8 py-4 lg:py-6 lg:pl-10 z-50">
     <!-- Navbar Start -->
     <div class="navbar-start">
       <div class="dropdown">
         <!-- Burger -->
         <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-900" fill="none" viewBox="0 0 24 24"
+          <!-- FIXME: SVG Color -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
             stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
           </svg>
@@ -44,6 +55,7 @@
           <!-- Theme -->
           <h1 class="font-bold text-lg pl-3 pb-2">Theme</h1>
           <li>
+            <!-- FIXME: Background Color -->
             <input type="radio" name="theme-dropdown"
               class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Default"
               value="default" />
@@ -86,7 +98,7 @@
             <label
               class="swap btn btn-ghost hover:bg-primary focus:bg-primary hover:text-primary-content focus:text-primary-content btn-circle">
               <!-- this hidden checkbox controls the state -->
-              <input type="checkbox" onclick="enableMute()" class="" value="" />
+              <input type="checkbox" class="sound-2" value="" />
               <!-- Sound icon -->
               <svg class="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 fill="currentColor">
@@ -128,7 +140,7 @@
     <div class="navbar-center lg:flex">
       <!-- Input and Send Elements -->
       <div class="space-x-2.5">
-        <input type="text" id="message" placeholder="Ask quackOverflow..."
+        <input type="text" id="message" placeholder="Ask quackOverflow..." autocomplete="off"
           class="input input-bordered w-[15rem] lg:w-[40rem] rounded-full text-base-content" />
         <button id="send-btn" class="btn btn-primary btn-circle">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -155,7 +167,8 @@
       <!-- Sound input -->
       <label
         class="swap btn btn-ghost hover:bg-primary focus:bg-primary hover:text-primary-content focus:text-primary-content btn-circle">
-        <input type="checkbox" onclick="enableMute()" class="" value="" />
+        <input type="checkbox" class="sound-1" value="" />
+        
         <!-- Sound icon -->
         <svg class="swap-off fill-current w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
           fill="currentColor">
@@ -220,7 +233,8 @@
   </div>
   <!--//  Main Navbar -->
   <!-- Quack Start Container -->
-  <div class="chat chat-start lg:px-64 px-4 pt-[7rem]">
+  <div class="chat chat-start lg:px-64 px-4 pt-[7rem] hidden"
+    id="chat-container">
     <div class="chat-image avatar">
       <div class="w-10 rounded-full">
         <img alt="quackOverflow Profile" src="./assets/images/rd-right-view.jpg" />
@@ -239,9 +253,6 @@
   <!-- // Quack Start Container -->
   <!-- Main Script -->
   <script src="./js/quack.js"></script>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
 </body>
 
 </html>

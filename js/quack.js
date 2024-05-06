@@ -80,8 +80,8 @@ function main() {
     const quackEmoji = new Image();
     quackEmoji.src = './assets/images/rubber-duck-icon.png';
     quackEmoji.classList.add('w-7', 'h-auto');
-    chatBubble.innerHTML = ''; 
-    chatBubble.appendChild(quackEmoji); 
+    chatBubble.innerHTML = '';
+    chatBubble.appendChild(quackEmoji);
     quack.play();
   } else {
     chatBubble.textContent = messageValue;
@@ -206,8 +206,54 @@ sendBtn.addEventListener('click', function () {
   }, 2000);
 });
 
-function enableMute() { 
-  quack.muted = true;
-  bloop.muted = true;
-}
+// Forda burger
 
+let checkbox1 = document.querySelector('.sound-1');
+
+// Add an event listener to the checkbox
+checkbox1.addEventListener('change', function () {
+  if (this.checked) {
+    // If the checkbox is checked, unmute the audio
+    quack.muted = true;
+    bloop.muted = true;
+    console.log('muted');
+  } else {
+    // If the checkbox is unchecked, mute the audio
+    quack.muted = false;
+    bloop.muted = false;
+    console.log('not muted');
+  }
+});
+
+// Forda navbar
+
+let checkbox2 = document.querySelector('.sound-2');
+
+// Add an event listener to the checkbox
+checkbox2.addEventListener('change', function () {
+  if (this.checked) {
+    // If the checkbox is checked, unmute the audio
+    quack.muted = true;
+    bloop.muted = true;
+    console.log('muted');
+  } else {
+    // If the checkbox is unchecked, mute the audio
+    quack.muted = false;
+    bloop.muted = false;
+    console.log('not muted');
+  }
+});
+
+const loader = document.querySelector('#loader');
+const chatContainer = document.querySelector('#chat-container');
+const bodyPadding = document.getElementById('body-padding');
+
+setTimeout(() => {
+  loader.style.opacity = '0';
+  setTimeout(() => {
+    loader.style.display = 'none';
+    chatContainer.classList.remove('hidden');
+  }, 900);
+
+  bodyPadding.classList.add('pb-4', 'lg:pb-6');
+}, 3000);
