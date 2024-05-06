@@ -72,7 +72,7 @@ function main() {
   chatContainer.appendChild(chatUl);
 
   const chatBubble = document.createElement('li');
-  chatBubble.classList.add('chat-bubble', 'pr-4', 'lg:max-w-[30rem]', 'max-w-[17rem]', 'chat-bubble-secondary', 'text-secondary-content');
+  chatBubble.classList.add('chat-bubble', 'pr-4', 'lg:max-w-[30rem]', 'max-w-[14rem]', 'chat-bubble-secondary', 'text-secondary-content');
   chatBubble.id = 'message';
   chatUl.appendChild(chatBubble);
 
@@ -259,3 +259,4 @@ setTimeout(() => {
 
   bodyPadding.classList.add('pb-[6rem]', 'lg:pb-[8rem]');
 }, 3000);
+
